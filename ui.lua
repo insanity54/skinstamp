@@ -31,11 +31,9 @@ minetest.register_on_joinplayer(function(player)
   local player_name = player:get_player_name()
   local bags_inv = minetest.create_detached_inventory(player_name .. "_skinstamp", {
     allow_put = function(inv, listname, index, stack, player)
-      
       if stack:get_name() ~= "skinstamp:skin" then
         return 0 -- ItemStack is not a skin.
       end
-
       return 1
     end,
     on_put = function(inv, listname, index, stack, player)
